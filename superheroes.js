@@ -307,6 +307,11 @@ const superheroes = [
     name: "Fatneek daddy the animal",
     powers: ["existing"],
     img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2Fofficialfatneek&psig=AOvVaw1T9DLdWsopYLOZrJAMFTZy&ust=1644054273428000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCND7pNDh5fUCFQAAAAAdAAAAABAD",
+    dob: {
+      day: 7,
+      month: 7,
+      year: 2000,
+    },
     hasCape: true,
   },
   {
@@ -449,9 +454,9 @@ const superheroes = [
     img: "https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/3:2/w_3329,h_2219,c_limit/1521-WIRED-Cat.jpeg",
     lifePercentage: 500,
     dob: {
-      day: "13",
-      month: "9",
-      year: "1968",
+      day: 13,
+      month: 9,
+      year: 1968,
     },
     hasCape: true,
   },
@@ -481,6 +486,11 @@ const superheroes = [
       "embarassing people",
     ],
     img: "http://www.pxleyes.com/images/contests/what-you-eat/fullsize/Banana-man-4d8a6d7b1842c.jpg",
+    dob: {
+      day: 7,
+      month: 7,
+      year: 2000,
+    },
     hasCape: false,
   },
   {
@@ -498,9 +508,28 @@ const superheroes = [
   },
 ];
 
-alert(
-  "1. Checking if JS file is linked up correctly. \n2. Always open the inspector/console when woorking with the JS \n3. Write your code in the end of the js-file \n4. Don't use alert boxes for UI... \n5. Delete this message or comment it out"
-);
+// alert(
+//   "1. Checking if JS file is linked up correctly. \n2. Always open the inspector/console when woorking with the JS \n3. Write your code in the end of the js-file \n4. Don't use alert boxes for UI... \n5. Delete this message or comment it out"
+// );
 console.table(superheroes);
 
 /* write your code here */
+
+superheroes.forEach(showHero);
+
+function showHero(superhero) {
+  const template = document.querySelector("template").content;
+  const clone = template.cloneNode(true);
+  clone.querySelector(".name").textContent = superhero.name;
+  clone.querySelector(".powers").textContent = `${superhero.powers}`;
+  clone.querySelector(".primary_nemesis").textContent =
+    superhero.primaryNemesis;
+  clone.querySelector(".superhero_img").src = superhero.img;
+  clone.querySelector(".life_percentage").textContent =
+    superhero.lifePercentage + " %";
+  clone.querySelector(
+    ".dob"
+  ).textContent = `DOB: ${superhero.dob.day}/${superhero.dob.month}/${superhero.dob.year}`;
+  const parent = document.querySelector("main");
+  parent.appendChild(clone);
+}

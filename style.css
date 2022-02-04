@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  list-style: none;
+}
+body,
+main {
+  margin: 3rem;
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.superhero_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
+  gap: 1.3rem;
+  margin: 4rem;
+}
+
+.superhero_card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  border: 1px solid black;
+  border-radius: 12px;
+  gap: 1.3rem;
+}
+
+.superhero_img {
+  grid-row: 1;
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+img {
+  max-width: 100%;
+}
